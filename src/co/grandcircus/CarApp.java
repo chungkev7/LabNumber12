@@ -12,7 +12,21 @@ public class CarApp {
 		Scanner scan = new Scanner(System.in);
 
 		ArrayList<Car> carList = new ArrayList<>();
-
+		
+		System.out.println("Welcome to the Grand Circus Motors admin console! \n");
+		int enteredCars = 1;
+		int carCount = Validator.getInt(scan, "How many cars are you entering? ");
+		for (int i = 0; i < carCount; i++) {
+		String carMake = Validator.getString(scan, "Enter Car #" + enteredCars + " Make: ");
+		String carModel = Validator.getString(scan, "Enter Car #" + enteredCars + " Model: ");
+		int carYear = Validator.getInt(scan, "Enter Car #" + enteredCars + " Year: ");
+		double carPrice = Validator.getDouble(scan, "Enter Car #" + enteredCars + " Price:");
+		carList.add(new Car(carMake, carModel, carYear, carPrice));
+		enteredCars++;
+		}
+		
+		System.out.println();
+		
 		carList.add(new Car("Nikolai", "Model S", 2017, 54999.90));
 		carList.add(new Car("Ford", "Escape", 2016, 31999.90));
 		carList.add(new Car("Toyota", "Prius", 2017, 34555.86));
